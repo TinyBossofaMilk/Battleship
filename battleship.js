@@ -1,39 +1,75 @@
 const ship = (length) => {
-    let xcoor;
-    let ycoor;
+    // let xcoor;
+    // let ycoor;
+    let length;
     let sunk = false;
-
     let hitArr = [];
 
-    const init = () => {
+    const init = (length) => {
+        // xcoor = x;
+        // ycoor = y;
+        length = length;
 
+        for(let i = 0; i < length; i++)
+        {hitArr[i] = false;}
     };
 
-    const hit = () => {
-
+    const hit = (num) => {
+        hitArr[num] = true;
     };
 
     const isSunk = () => {
+        let dead = true;
+        for(let e of hitArr){
+            if(e === true)
+                dead = false;
+        };
 
+        if(dead)
+            sunk = true;
     };
 
-    return {length};
+    return {xcoor, ycoor, length, sunk, hitArr, hit, isSunk};
 };
 
 
 const gameboard = () => {
+    const carrier	5
+    const battleship	4
+    const destroyer	3
+    const submarine	3
+    const patrolBoat	2
+    
+    const grid = [];
+
     const missedAttacks = [];
     const receiveAttack = (x,y) => {
 
     };
 
+    const init = () => {
+        for(let i = 0; i < 10; i++){
+            for(let j = 0; j < 10; j++){
+                grid[i][j] = null;
+            }
+        }
+    }
+
+    
     const allShipsSunk = () => {
 
     };
 
+   
 };
 
-
+/*
+1	Carrier	5
+2	Battleship	4
+3	Destroyer	3
+4	Submarine	3
+5	Patrol Boat	2
+*/
 
 /*
 Begin your app by creating the Ship factory function.
@@ -47,7 +83,8 @@ Note that we have not yet created any User Interface. We should know our code is
 You shouldn’t be relying on console.logs or DOM methods to make sure your code is doing what you expect it to.
 
 Gameboards should be able to place ships at specific coordinates by calling the ship factory function.
-Gameboards should have a receiveAttack function that takes a pair of coordinates, determines whether or not the attack hit a ship and then sends the ‘hit’ function to the correct ship, or records the coordinates of the missed shot.
+Gameboards should have a receiveAttack function that takes a pair of coordinates, 
+    determines whether or not the attack hit a ship and then sends the ‘hit’ function to the correct ship, or records the coordinates of the missed shot.
 Gameboards should keep track of missed attacks so they can display them properly.
 Gameboards should be able to report whether or not all of their ships have been sunk.
 
