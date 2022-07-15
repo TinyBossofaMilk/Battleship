@@ -1,4 +1,4 @@
-const ship = (length) => {
+const ship = (xcoor, ycoor, length) => {
     // let xcoor;
     // let ycoor;
     let length;
@@ -33,35 +33,9 @@ const ship = (length) => {
 };
 
 
-const gameboard = () => {
-    const carrier	5
-    const battleship	4
-    const destroyer	3
-    const submarine	3
-    const patrolBoat	2
-    
-    const grid = [];
 
-    const missedAttacks = [];
-    const receiveAttack = (x,y) => {
 
-    };
-
-    const init = () => {
-        for(let i = 0; i < 10; i++){
-            for(let j = 0; j < 10; j++){
-                grid[i][j] = null;
-            }
-        }
-    }
-
-    
-    const allShipsSunk = () => {
-
-    };
-
-   
-};
+module.exports = ship;
 
 /*
 1	Carrier	5
@@ -82,11 +56,6 @@ Create Gameboard factory.
 Note that we have not yet created any User Interface. We should know our code is coming together by running the tests. 
 You shouldn’t be relying on console.logs or DOM methods to make sure your code is doing what you expect it to.
 
-Gameboards should be able to place ships at specific coordinates by calling the ship factory function.
-Gameboards should have a receiveAttack function that takes a pair of coordinates, 
-    determines whether or not the attack hit a ship and then sends the ‘hit’ function to the correct ship, or records the coordinates of the missed shot.
-Gameboards should keep track of missed attacks so they can display them properly.
-Gameboards should be able to report whether or not all of their ships have been sunk.
 
 Create Player.
 Players can take turns playing the game by attacking the enemy Gameboard.
