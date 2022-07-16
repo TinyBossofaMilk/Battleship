@@ -2,8 +2,9 @@ const ship = (xcoor, ycoor, length) => {
     // let xcoor;
     // let ycoor;
     let length;
-    let sunk = false;
+    // let sunk = false;
     let hitArr = [];
+    let facing; // up, down left right
 
     const init = (length) => {
         // xcoor = x;
@@ -22,17 +23,15 @@ const ship = (xcoor, ycoor, length) => {
         let dead = true;
         for(let e of hitArr){
             if(e === true)
-                dead = false;
+                return false;
         };
 
         if(dead)
-            sunk = true;
+            return true;
     };
 
-    return {xcoor, ycoor, length, sunk, hitArr, hit, isSunk};
+    return {xcoor, ycoor, length, hit, isSunk};
 };
-
-
 
 
 module.exports = ship;
