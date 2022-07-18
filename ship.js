@@ -1,36 +1,31 @@
-const ship = (xcoor, ycoor, length) => {
+const ship = (xPos, yPos, length) => {
     // let xcoor;
     // let ycoor;
-    let length;
+    // let length;
     // let sunk = false;
-    let hitArr = [];
+    let hitArr = []; //false when not hit, true when hit
     let facing; // up, down left right
 
-    const init = (length) => {
-        // xcoor = x;
-        // ycoor = y;
-        length = length;
-
+    const init = (() => {
         for(let i = 0; i < length; i++)
         {hitArr[i] = false;}
-    };
+    })();
 
     const hit = (num) => {
         hitArr[num] = true;
     };
 
     const isSunk = () => {
-        let dead = true;
+        //if every element is true, ship is completely sunk, will return true. Else return false
         for(let e of hitArr){
-            if(e === true)
+            if(e === false)
                 return false;
-        };
-
-        if(dead)
-            return true;
+        }
+        return true;
+        // return hitArr.every(e => e);
     };
 
-    return {xcoor, ycoor, length, hit, isSunk};
+    return {xPos, yPos, length, hit, isSunk};
 };
 
 
