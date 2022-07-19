@@ -1,3 +1,15 @@
+import gameboard from "./gameboard"
+
+const player = () => {
+    const gb = gameboard();
+
+    const init = (()=>{
+
+    });
+};
+
+module.exports = player;
+
 /*
 Create Player.
 Players can take turns playing the game by attacking the enemy Gameboard.

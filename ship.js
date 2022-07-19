@@ -1,11 +1,10 @@
-const ship = (xPos, yPos, length) => {
+const ship = (xPos, yPos, length, horizontal = true) => {
     // let xcoor;
     // let ycoor;
     // let length;
     // let sunk = false;
     let hitArr = []; //false when not hit, true when hit
-    let facing; // up, down left right
-
+    let horizontal; // true if ship moves right (length) units, down if (length) units
     const init = (() => {
         for(let i = 0; i < length; i++)
         {hitArr[i] = false;}
@@ -25,7 +24,7 @@ const ship = (xPos, yPos, length) => {
         // return hitArr.every(e => e);
     };
 
-    return {xPos, yPos, length, hit, isSunk};
+    return {xPos, yPos, horizontal, length, hit, isSunk};
 };
 
 
